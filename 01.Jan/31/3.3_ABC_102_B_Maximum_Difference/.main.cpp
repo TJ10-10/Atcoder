@@ -1,20 +1,19 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 int main() {
   int N;
   cin >> N;
 
-  int max_val = 0;
-  int min_val = 1000000001;
-
+  vector<int> A(N);
   for (int i = 0; i < N; i++) {
-    int a;
-    cin >> a;
-    if (a > max_val) max_val = a;
-    if (a < min_val) min_val = a;
+    cin >> A[i];
   }
+
+  int max_val = *max_element(A.begin(), A.end());
+  int min_val = *min_element(A.begin(), A.end());
 
   cout << max_val - min_val << endl;
 
